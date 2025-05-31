@@ -1,13 +1,16 @@
-import React, {useContext, useState} from 'react';
-import {SystemColors} from '../styleVars';
+import React, { useContext, useState } from 'react';
+import { SystemColors } from '../styleVars';
 import { SystemIcons } from '../components/ui/Icon/Icon';
 
+export interface ToastProperties {
+  message: string,
+  icon?: SystemIcons,
+  color?: keyof SystemColors,
+  mode?: ToastMode
+}
 interface ToastContext {
   showToast: (
-    message: string,
-    icon?: SystemIcons,
-    color?: keyof SystemColors,
-    mode?: ToastMode,
+    properties: ToastProperties
   ) => void;
   visible: boolean;
   message: string;
@@ -20,7 +23,7 @@ export const ToastContext = React.createContext<ToastContext>({} as any);
 
 type ToastMode = 'filled' | 'outlined' | 'transparent';
 
-export function ToastProvider({children}: {children: React.ReactNode}) {
+export function ToastProvider({ children }: { children: React.ReactNode }) {
   const [message, setMessage] = useState<string>('');
   const [mode, setMode] = useState<ToastMode | undefined>();
   const [icon, setIcon] = useState<SystemIcons | undefined>();
@@ -28,10 +31,12 @@ export function ToastProvider({children}: {children: React.ReactNode}) {
   const [color, setColor] = useState<keyof SystemColors | undefined>();
 
   const showToast = (
-    message: string,
-    icon?: SystemIcons,
-    color?: keyof SystemColors,
-    mode?: ToastMode,
+    { message, icon, color, mode }: {
+      message: string,
+      icon?: SystemIcons,
+      color?: keyof SystemColors,
+      mode?: ToastMode
+    }
   ) => {
     setMessage(message);
     setMode(mode);

@@ -7,13 +7,13 @@ import {useAuth} from './src/hooks/useAuth';
 import {PrivateScreen} from './src/screens/PrivateScreen';
 
 export const Body = () => {
-  const {csrf} = useAuth();
+  const {authToken} = useAuth();
 
   return (
     <SafeAreaView style={style.safeViewLayout}>
       <View style={style.content}>
         <NavigationContainer>
-          {csrf ? <PrivateScreen /> : <PublicScreen />}
+          {authToken ? <PrivateScreen /> : <PublicScreen />}
         </NavigationContainer>
       </View>
       <Toast />

@@ -6,7 +6,7 @@ export interface SelectOption {
 export interface Page<T> {
     page: number;
     totalPages: number;
-    data: T[];
+    content: T[];
 }
 
 export interface ApiResponse<T> {
@@ -56,5 +56,7 @@ export enum ErrorCode {
     PAYER_NOT_IN_GROUP = 'PAYER_NOT_IN_GROUP',
     INACTIVE_GROUP = 'INACTIVE_GROUP',
     NON_ZERO_BALANCE = 'NON_ZERO_BALANCE',
-    ALREADY_VALIDATED_ACCOUNT = 'ALREADY_VALIDATED_ACCOUNT'
+    ALREADY_VALIDATED_ACCOUNT = 'ALREADY_VALIDATED_ACCOUNT',
+    USER_AGENT_NOT_MATCH = 'USER_AGENT_NOT_MATCH',
+    TOKEN_ALREADY_USED = 'TOKEN_ALREADY_USED'
 }

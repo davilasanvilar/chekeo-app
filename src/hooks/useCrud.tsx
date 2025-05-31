@@ -19,20 +19,18 @@ type SearchFilters = { [key: string]: string | boolean | string[] };
 
 export function useCrud<T>(entity: string): CrudOperations<T> {
     const apiUrl = conf.apiUrl;
-    const { csrf } = useAuth();
+    const { fetchWithAuth } = useAuth();
 
     const create = async (form: unknown): Promise<T> => {
         const url = `${apiUrl}${entity}`;
         const options: RequestInit = {
             method: 'POST',
             body: JSON.stringify(form),
-            credentials: 'include',
             headers: new Headers({
-                'X-API-CSRF': csrf ? csrf : '',
                 'content-type': 'application/json'
             })
         };
-        const res = await fetch(url, options);
+        const res = await fetchWithAuth(url, options);
         const resObject: ApiResponse<T> = await res.json();
         checkResponseException(res, resObject);
         return resObject.data;
@@ -40,15 +38,13 @@ export function useCrud<T>(entity: string): CrudOperations<T> {
     const update = async (id: string, form: unknown): Promise<T> => {
         const url = `${apiUrl}${entity}/${id}`;
         const options: RequestInit = {
-            method: 'PATCH',
+            method: 'PUT',
             body: JSON.stringify(form),
-            credentials: 'include',
             headers: new Headers({
-                'X-API-CSRF': csrf ? csrf : '',
                 'content-type': 'application/json'
             })
         };
-        const res = await fetch(url, options);
+        const res = await fetchWithAuth(url, options);
         const resObject: ApiResponse<T> = await res.json();
         checkResponseException(res, resObject);
         return resObject.data;
@@ -58,13 +54,11 @@ export function useCrud<T>(entity: string): CrudOperations<T> {
         const url = `${apiUrl}${entity}/${id}`;
         const options: RequestInit = {
             method: 'GET',
-            credentials: 'include',
             headers: new Headers({
-                'X-API-CSRF': csrf ? csrf : '',
                 'content-type': 'application/json'
             })
         };
-        const res = await fetch(url, options);
+        const res = await fetchWithAuth(url, options);
         const resObject: ApiResponse<T> = await res.json();
         checkResponseException(res, resObject);
         return resObject.data;
@@ -82,13 +76,11 @@ export function useCrud<T>(entity: string): CrudOperations<T> {
         const options: RequestInit = {
             method: 'POST',
             body: JSON.stringify(body),
-            credentials: 'include',
             headers: new Headers({
-                'X-API-CSRF': csrf ? csrf : '',
                 'content-type': 'application/json'
             })
         };
-        const res = await fetch(url, options);
+        const res = await fetchWithAuth(url, options);
         const resObject: ApiResponse<Page<T>> = await res.json();
         checkResponseException(res, resObject);
         return resObject.data;
@@ -98,13 +90,11 @@ export function useCrud<T>(entity: string): CrudOperations<T> {
         const url = `${apiUrl}${entity}/${id}`;
         const options: RequestInit = {
             method: 'DELETE',
-            credentials: 'include',
             headers: new Headers({
-                'X-API-CSRF': csrf ? csrf : '',
                 'content-type': 'application/json'
             })
         };
-        const res = await fetch(url, options);
+        const res = await fetchWithAuth(url, options);
         const resObject = await res.json();
         checkResponseException(res, resObject);
     };
