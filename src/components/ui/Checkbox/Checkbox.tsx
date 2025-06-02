@@ -12,9 +12,7 @@ export function Checkbox({
   label: string;
 }) {
   return (
-    <Pressable
-      style={style.mainBox}
-      onPress={() => onChange(checked => !checked)}>
+    <Pressable style={style.mainBox} onPress={() => onChange(check => !check)}>
       <View style={[style.checkbox, checked && style.checked]}>
         {checked && <Icon type="check" size={16} color="white" />}
       </View>

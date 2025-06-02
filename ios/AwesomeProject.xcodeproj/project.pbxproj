@@ -14,6 +14,16 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-AwesomeProject-AwesomeProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-AwesomeProject-AwesomeProjectTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F80F3BC8828C4165970D6D8E /* Rasa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2D5C254B3854866AD5B0514 /* Rasa-Bold.ttf */; };
+		0F6584C4BE3842F19C37DFAD /* Rasa-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CE742B874264F9B9501639B /* Rasa-BoldItalic.ttf */; };
+		0B2D0DB2DD064AFD8A860824 /* Rasa-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A932840431F422CAB2BD6B1 /* Rasa-Italic.ttf */; };
+		20D5602CBFA94B379E4D2453 /* Rasa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 233CE761CA884236828443B2 /* Rasa-Light.ttf */; };
+		34DA6F2EE27340C1B48F7296 /* Rasa-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB44B811BA4943DFA0344110 /* Rasa-LightItalic.ttf */; };
+		B8CE9B6A637647DDBA9C0CA4 /* Rasa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16DFC0EA1F384B4E96125A91 /* Rasa-Medium.ttf */; };
+		616B7D6B3A284D38827300F7 /* Rasa-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E942342DB4C408886B6E857 /* Rasa-MediumItalic.ttf */; };
+		F3B672BAF80F4478AD6EB7BD /* Rasa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE728851555B4CC1BAB47632 /* Rasa-Regular.ttf */; };
+		3BCBD92548524DB0B4467452 /* Rasa-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0AF311F4EB814F7B87639661 /* Rasa-SemiBold.ttf */; };
+		20589F2323BD4AA493353B1B /* Rasa-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F1EAE822174C1AAA439244 /* Rasa-SemiBoldItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +46,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AwesomeProject/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AwesomeProject/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AwesomeProject/main.m; sourceTree = "<group>"; };
-	    13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = AwesomeProject/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = AwesomeProject/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-AwesomeProject-AwesomeProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AwesomeProject-AwesomeProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-AwesomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject.debug.xcconfig"; path = "Target Support Files/Pods-AwesomeProject/Pods-AwesomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-AwesomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject.release.xcconfig"; path = "Target Support Files/Pods-AwesomeProject/Pods-AwesomeProject.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +55,16 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AwesomeProject/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig"; path = "Target Support Files/Pods-AwesomeProject-AwesomeProjectTests/Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F2D5C254B3854866AD5B0514 /* Rasa-Bold.ttf */ = {isa = PBXFileReference; name = "Rasa-Bold.ttf"; path = "../assets/fonts/Rasa-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4CE742B874264F9B9501639B /* Rasa-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Rasa-BoldItalic.ttf"; path = "../assets/fonts/Rasa-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6A932840431F422CAB2BD6B1 /* Rasa-Italic.ttf */ = {isa = PBXFileReference; name = "Rasa-Italic.ttf"; path = "../assets/fonts/Rasa-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		233CE761CA884236828443B2 /* Rasa-Light.ttf */ = {isa = PBXFileReference; name = "Rasa-Light.ttf"; path = "../assets/fonts/Rasa-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DB44B811BA4943DFA0344110 /* Rasa-LightItalic.ttf */ = {isa = PBXFileReference; name = "Rasa-LightItalic.ttf"; path = "../assets/fonts/Rasa-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		16DFC0EA1F384B4E96125A91 /* Rasa-Medium.ttf */ = {isa = PBXFileReference; name = "Rasa-Medium.ttf"; path = "../assets/fonts/Rasa-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5E942342DB4C408886B6E857 /* Rasa-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Rasa-MediumItalic.ttf"; path = "../assets/fonts/Rasa-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AE728851555B4CC1BAB47632 /* Rasa-Regular.ttf */ = {isa = PBXFileReference; name = "Rasa-Regular.ttf"; path = "../assets/fonts/Rasa-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0AF311F4EB814F7B87639661 /* Rasa-SemiBold.ttf */ = {isa = PBXFileReference; name = "Rasa-SemiBold.ttf"; path = "../assets/fonts/Rasa-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		78F1EAE822174C1AAA439244 /* Rasa-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Rasa-SemiBoldItalic.ttf"; path = "../assets/fonts/Rasa-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +144,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				FE5C79628E6E4984B3BFEE8C /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -149,6 +170,24 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		FE5C79628E6E4984B3BFEE8C /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				F2D5C254B3854866AD5B0514 /* Rasa-Bold.ttf */,
+				4CE742B874264F9B9501639B /* Rasa-BoldItalic.ttf */,
+				6A932840431F422CAB2BD6B1 /* Rasa-Italic.ttf */,
+				233CE761CA884236828443B2 /* Rasa-Light.ttf */,
+				DB44B811BA4943DFA0344110 /* Rasa-LightItalic.ttf */,
+				16DFC0EA1F384B4E96125A91 /* Rasa-Medium.ttf */,
+				5E942342DB4C408886B6E857 /* Rasa-MediumItalic.ttf */,
+				AE728851555B4CC1BAB47632 /* Rasa-Regular.ttf */,
+				0AF311F4EB814F7B87639661 /* Rasa-SemiBold.ttf */,
+				78F1EAE822174C1AAA439244 /* Rasa-SemiBoldItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -245,6 +284,16 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F80F3BC8828C4165970D6D8E /* Rasa-Bold.ttf in Resources */,
+				0F6584C4BE3842F19C37DFAD /* Rasa-BoldItalic.ttf in Resources */,
+				0B2D0DB2DD064AFD8A860824 /* Rasa-Italic.ttf in Resources */,
+				20D5602CBFA94B379E4D2453 /* Rasa-Light.ttf in Resources */,
+				34DA6F2EE27340C1B48F7296 /* Rasa-LightItalic.ttf in Resources */,
+				B8CE9B6A637647DDBA9C0CA4 /* Rasa-Medium.ttf in Resources */,
+				616B7D6B3A284D38827300F7 /* Rasa-MediumItalic.ttf in Resources */,
+				F3B672BAF80F4478AD6EB7BD /* Rasa-Regular.ttf in Resources */,
+				3BCBD92548524DB0B4467452 /* Rasa-SemiBold.ttf in Resources */,
+				20589F2323BD4AA493353B1B /* Rasa-SemiBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

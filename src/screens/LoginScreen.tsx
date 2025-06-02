@@ -1,6 +1,6 @@
 import {NavigationProp, useNavigation} from '@react-navigation/native';
-import React, {useRef, useState} from 'react';
-import {Text, TextInput, View} from 'react-native';
+import React, {useState} from 'react';
+import {View} from 'react-native';
 import {PublicScreenNavList} from '../types/navProps';
 import {notEmptyValidator, useValidator} from '../hooks/useValidator';
 import {Input} from '../components/ui/Input/Input';
@@ -8,8 +8,6 @@ import {Button} from '../components/ui/Button/Button';
 import Logo from '../../assets/logo.svg';
 import {Form} from '../components/ui/Form/Form';
 import {FormField} from '../components/ui/FormField/FormField';
-import {colors} from '../styleVars';
-import {Link} from '../components/ui/Link/Link';
 import {useMutation} from '@tanstack/react-query';
 import {useAuth} from '../hooks/useAuth';
 import {useReactQuery} from '../hooks/useReactQuery';
@@ -47,9 +45,9 @@ export function LoginScreen() {
     const passwordValid = passwordValidate();
 
     if (usernameValid && passwordValid) {
-      await auth.authenticate(username, password);
+      await auth.authenticate(username, password, true);
     } else {
-      showToast('There are errors in the form');
+      showToast({message: 'There are errors in the form', color: 'error'});
     }
   };
 
@@ -61,17 +59,10 @@ export function LoginScreen() {
     onError: e => {
       if (e instanceof ApiError) {
         if (
-          e.statusCode === StatusCode.ClientErrorForbidden &&
-          e.code === ErrorCode.NOT_VALIDATED_ACCOUNT
-        ) {
-          navigate('Validation', {username});
-          return;
-        }
-        if (
           e.statusCode === StatusCode.ClientErrorUnauthorized &&
           e.code === ErrorCode.INVALID_CREDENTIALS
         ) {
-          showToast('Wrong credentials');
+          showToast({message: 'Wrong credentials', color: 'error'});
           return;
         }
       }
@@ -116,26 +107,17 @@ export function LoginScreen() {
                 passwordDirty && passwordError ? passwordMessage : undefined
               }
             />
-            <Link onPress={() => navigate('ForgottenPassword')}>
-              {'I have forgotten my password'}
-            </Link>
-            <View style={{flexDirection: 'row', gap: 8, alignItems: 'center'}}>
-              <Text style={{color: colors.neutral[900]}}>
-                {"Don't have an account yet?"}
-              </Text>
-              <Button variant="ghost" onPress={() => navigate('Register')}>
-                {'Register'}
-              </Button>
-            </View>
           </>
         }
         buttons={
-          <Button
-            disabled={disabledLoginButton}
-            isLoading={isLoading}
-            onPress={() => onLogin()}>
-            {'Login'}
-          </Button>
+          <>
+            <Button
+              disabled={disabledLoginButton}
+              isLoading={isLoading}
+              onPress={() => onLogin()}>
+              {'Login'}
+            </Button>
+          </>
         }
       />
     </View>

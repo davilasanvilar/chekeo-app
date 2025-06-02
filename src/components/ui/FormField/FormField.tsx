@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {colors} from '../../../styleVars';
+import {Typography} from '@components/ui/Typography/Typography';
 
 export function FormField({
   input,
@@ -13,7 +14,7 @@ export function FormField({
 }) {
   return (
     <View style={style.mainBox}>
-      {label && <Text style={style.label}>{label}</Text>}
+      {<Typography variant="label">{label}</Typography>}
       {input}
       {error && <Text style={{color: colors.error[500]}}>{error}</Text>}
     </View>
@@ -21,6 +22,10 @@ export function FormField({
 }
 
 const style = StyleSheet.create({
-  mainBox: {display: 'flex', flexDirection: 'column', marginBottom: 16, gap: 8},
-  label: {color: 'black', fontSize: 16, fontWeight: 'bold'},
+  mainBox: {display: 'flex', flexDirection: 'column', marginBottom: 16, gap: 4},
+  label: {
+    color: colors.neutral[300],
+    fontSize: 16,
+    fontFamily: 'Rasa-Regular',
+  },
 });

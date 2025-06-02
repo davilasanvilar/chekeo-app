@@ -1,8 +1,9 @@
-import React, {ReactNode, useState} from 'react';
-import {StyleSheet, Pressable, Text} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, Pressable} from 'react-native';
 import {Icon, SystemIcons} from '../Icon/Icon';
 import {colors} from '../../../styleVars';
 import {LoadingIcon} from '../Icon/icons/LoadingIcon';
+import {Typography} from '../Typography/Typography';
 
 export type ButtonVariant = 'solid' | 'outlined' | 'ghost';
 
@@ -34,28 +35,20 @@ export function Button(props: ButtonProps) {
   const getBgColor = () => {
     switch (variant) {
       case 'solid':
-        return disabled
-          ? colors.neutral[200]
-          : pressed
-          ? colors.primary[700]
-          : colors.primary[500];
+        return pressed ? colors.primary[700] : colors.primary[500];
       case 'outlined':
-        return disabled
-          ? colors.neutral[0]
-          : pressed
-          ? colors.neutral[100]
-          : 'transparent';
+        return 'transparent';
       case 'ghost':
-        return pressed && !disabled ? colors.neutral[100] : 'transparent';
+        return disabled ? 'transparent' : 'transparent';
     }
   };
 
   const getBorderColor = () => {
     switch (variant) {
       case 'solid':
-        return disabled ? colors.neutral[200] : colors.primary[500];
+        return 'transparent';
       case 'outlined':
-        return disabled ? colors.neutral[200] : colors.primary[500];
+        return pressed ? colors.primary[700] : colors.primary[500];
       case 'ghost':
         return 'transparent';
     }
@@ -67,11 +60,11 @@ export function Button(props: ButtonProps) {
     }
     switch (variant) {
       case 'solid':
-        return disabled ? colors.neutral[400] : colors.neutral[0];
+        return colors.neutral[0];
       case 'outlined':
-        return disabled ? colors.neutral[400] : colors.primary[500];
+        return pressed ? colors.primary[700] : colors.primary[500];
       case 'ghost':
-        return disabled ? colors.neutral[400] : colors.primary[500];
+        return pressed ? colors.primary[700] : colors.primary[500];
     }
   };
 
@@ -87,11 +80,13 @@ export function Button(props: ButtonProps) {
       justifyContent: 'center',
       gap: 8,
       alignItems: 'center',
-      borderWidth: 1,
+      borderWidth: 2,
       borderColor: getBorderColor(),
+      opacity: disabled ? 0.4 : 1,
     },
     text: {
       textAlign: 'center',
+      textTransform: 'capitalize',
       color: getFontColor(),
       fontSize: 16,
       fontWeight: '700',
@@ -114,7 +109,9 @@ export function Button(props: ButtonProps) {
           ) : (
             <></>
           )}
-          <Text style={styles.text}>{children}</Text>
+          <Typography style={{color: getFontColor()}} variant="button">
+            {children}
+          </Typography>
           {iconRight && (
             <Icon size={16} type={iconRight} color={getFontColor()} />
           )}
