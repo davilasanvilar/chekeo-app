@@ -1,3 +1,4 @@
+import {useKeyboardVisible} from '@src/hooks/useKeyboardVisible';
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 
@@ -8,11 +9,15 @@ export function Form({
   fields: React.ReactNode;
   buttons?: React.ReactNode;
 }) {
+  const isKeyboardVisible = useKeyboardVisible();
+
   return (
-    <ScrollView contentContainerStyle={style.mainBox}>
-      <View style={style.fieldsView}>{fields}</View>
-      {buttons && <View style={style.buttonsBox}>{buttons}</View>}
-    </ScrollView>
+    <View style={style.mainBox}>
+      <ScrollView contentContainerStyle={style.fieldsView}>{fields}</ScrollView>
+      {!isKeyboardVisible && buttons && (
+        <View style={style.buttonsBox}>{buttons}</View>
+      )}
+    </View>
   );
 }
 

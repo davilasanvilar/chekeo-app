@@ -1,43 +1,60 @@
 export interface BaseEntity {
     id: string;
     createdAt: Date;
-    createdBy?: User;
+    createdBy?: IUser;
 }
 
-export interface User extends BaseEntity {
+export interface IUser extends BaseEntity {
     username: string;
     email: string;
     balance?: number;
 }
 
-export interface LoginResponse {
-  authToken: string;
-  sessionId: string;
+export interface ILoginResponse {
+    authToken: string;
+    sessionId: string;
 }
 
-export interface RegisterUserForm {
+export interface IRegisterUserForm {
     username: string;
     email: string;
     password: string;
 }
 
-export interface Project extends BaseEntity {
-    name:string;
-    checks: Check[]
+export interface IProject extends BaseEntity {
+    name: string;
+    checks: ICheck[]
 }
 
-export interface SearchProjectForm {
-    name?:string;
-    userId?:string;
+export interface IProjectForm {
+    name: string;
+    checks: ICheckForm[]
 }
 
-export interface Check extends BaseEntity {
-    name:string;
+export interface ISearchProjectForm {
+    name?: string;
+    userId?: string;
+}
+
+
+export interface ICheck extends BaseEntity {
+    name: string;
     url: string;
-    lastResult: CheckResult;
+    frequency: number;
+    lastResult: ICheckResult;
 }
 
-export interface CheckResult extends BaseEntity {
+export type FrequencyUnitType = 'h' | 'm'
+
+export interface ICheckForm {
+    id?: string;
+    name: string;
+    url: string;
+    frequency: number;
+    frequencyType: FrequencyUnitType
+}
+
+export interface ICheckResult extends BaseEntity {
     status: number;
     info: string;
 }

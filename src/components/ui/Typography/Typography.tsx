@@ -41,8 +41,6 @@ const getFontFamily = (variant: TypographyVariant) => {
 
 const getColor = (variant: TypographyVariant) => {
   switch (variant) {
-    case 'important':
-      return colors.neutral[700];
     case 'label':
       return colors.neutral[300];
     case 'error':

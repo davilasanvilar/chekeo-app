@@ -1,11 +1,11 @@
 import {createContext, ReactNode} from 'react';
-import {RegisterUserForm, User} from '../types/entities';
+import {IRegisterUserForm, IUser} from '../types/entities';
 import {ApiResponse} from '../types/types';
 import {conf} from '../conf';
 import {checkResponseException} from '../utils/utilFunctions';
 
 interface ApiContext {
-  register: (user: RegisterUserForm) => void;
+  register: (user: IRegisterUserForm) => void;
   sendValidationCode: (username: string) => Promise<void>;
   validateAccount: (username: string, code: string) => Promise<void>;
   forgottenPassword: (username: string) => Promise<void>;
@@ -21,7 +21,7 @@ export const ApiContext = createContext<ApiContext>({} as ApiContext);
 export const ApiProvider = ({children}: {children: ReactNode}) => {
   const apiUrl = conf.apiUrl;
 
-  const register = async (form: RegisterUserForm) => {
+  const register = async (form: IRegisterUserForm) => {
     console.log('Registering user');
 
     const url = `${apiUrl}public/register`;
@@ -34,7 +34,7 @@ export const ApiProvider = ({children}: {children: ReactNode}) => {
     };
     console.log(url)
     const res = await fetch(url, options);
-    const resObject: ApiResponse<User> = await res.json();
+    const resObject: ApiResponse<IUser> = await res.json();
     checkResponseException(res, resObject);
   };
 

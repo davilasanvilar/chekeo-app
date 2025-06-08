@@ -1,4 +1,4 @@
-import {Project} from '@src/types/entities';
+import {IProject} from '@src/types/entities';
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Icon} from '../ui/Icon/Icon';
@@ -6,7 +6,7 @@ import {colors} from '@src/styleVars';
 import {Typography} from '../ui/Typography/Typography';
 import {CheckIndicator} from '../atom/CheckIndicator';
 
-export function ProjectCard({project}: {project: Project}) {
+export function ProjectCard({project}: {project: IProject}) {
   const isOk =
     !project.checks ||
     project.checks.every(
@@ -27,7 +27,7 @@ export function ProjectCard({project}: {project: Project}) {
       </View>
       <View style={style.checkList}>
         {project.checks?.map(check => (
-          <CheckIndicator check={check} />
+          <CheckIndicator key={check.id} check={check} />
         ))}
       </View>
     </TouchableOpacity>

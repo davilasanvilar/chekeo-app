@@ -1,11 +1,11 @@
-import {Check} from '@src/types/entities';
+import {ICheck} from '@src/types/entities';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Icon} from '../ui/Icon/Icon';
 import {Typography} from '../ui/Typography/Typography';
 import {colors} from '@src/styleVars';
 
-export function CheckIndicator({check}: {check: Check}) {
+export function CheckIndicator({check}: {check: ICheck}) {
   const isOk =
     !check.lastResult ||
     (check.lastResult.status >= 200 && check.lastResult.status < 300);

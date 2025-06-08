@@ -21,6 +21,7 @@ export const Input = forwardRef<TextInput, InputProps>((props, ref) => {
   const style = StyleSheet.create({
     input: {
       borderWidth: 1,
+      flex: 1,
       padding: 8,
       backgroundColor: colors.neutral[900],
       borderRadius: 8,

@@ -83,14 +83,7 @@ export function Button(props: ButtonProps) {
       borderWidth: 2,
       borderColor: getBorderColor(),
       opacity: disabled ? 0.4 : 1,
-    },
-    text: {
-      textAlign: 'center',
-      textTransform: 'capitalize',
-      color: getFontColor(),
-      fontSize: 16,
-      fontWeight: '700',
-    },
+    }
   });
 
   return (

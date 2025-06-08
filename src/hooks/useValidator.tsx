@@ -1,5 +1,4 @@
-import {RefObject, useEffect, useState} from 'react';
-import {TextInput} from 'react-native';
+import {useEffect, useState} from 'react';
 
 export function emailValidator(input: string): string {
   const regex =
@@ -27,6 +26,14 @@ export function upperLowerCaseValidator(input: string): string {
   return /(?=.*[A-Z])(?=.*[a-z]).*/.test(input)
     ? ''
     : 'The field should contain upper and lower case';
+}
+
+export function shouldBeANumberValidator(input: string): string {
+  return isNaN(Number(input)) ? 'The field should be a number' : '';
+}
+
+export function shouldBeGreaterThanZero(input: string): string {
+  return Number(input) <= 0 ? 'The value should be greater than zero' : '';
 }
 
 export const useValidator = (

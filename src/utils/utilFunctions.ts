@@ -1,3 +1,4 @@
+import { ICheck, ICheckForm } from '@src/types/entities';
 import { ApiError, ApiResponse } from '../types/types';
 
 export const checkResponseException = (
@@ -11,4 +12,8 @@ export const checkResponseException = (
             code: resObject.errorCode
         });
     }
+};
+
+export const checkToCheckForm = (check: ICheck): ICheckForm => {
+    return { id: check.id, name: check.name, url: check.url };
 };

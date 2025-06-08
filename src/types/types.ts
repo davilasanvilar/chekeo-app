@@ -36,6 +36,9 @@ export class ApiError extends Error {
     }
 }
 
+export class ValidationError extends Error {
+}
+
 export enum ErrorCode {
     NOT_JWT_TOKEN = 'NOT_JWT_TOKEN',
     NOT_CSR_TOKEN = 'NOT_CSR_TOKEN',

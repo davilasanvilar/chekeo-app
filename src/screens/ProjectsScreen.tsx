@@ -1,28 +1,26 @@
 // import {NavigationProp, useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
-import {useAuth} from '../hooks/useAuth';
 import {useCrud} from '@src/hooks/useCrud';
-import {Project} from '@src/types/entities';
+import {IProject} from '@src/types/entities';
 import {Page} from '@src/types/types';
 import {useQuery} from '@tanstack/react-query';
 import {Typography} from '@src/components/ui/Typography/Typography';
 import {Button} from '@src/components/ui/Button/Button';
 import {ProjectCard} from '@src/components/molecules/ProjectCard';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {PrivateScreenNavList} from '@src/types/navProps';
 
 export function ProjectsScreen() {
-  // const {navigate} = useNavigation<NavigationProp<PrivateScreenNavList>>();
-  const auth = useAuth();
-
-  const {search} = useCrud<Project>('project');
+  const {search} = useCrud<IProject>('project');
 
   const searchProjects = () => {
     return search(0, 0, {});
   };
 
-  const {data: projectPage, refetch: reloadProjects} = useQuery<
-    Page<Project> | undefined
-  >({
+  const {navigate} = useNavigation<NavigationProp<PrivateScreenNavList>>();
+
+  const {data: projectPage} = useQuery<Page<IProject> | undefined>({
     queryKey: ['searchProjects'],
     queryFn: searchProjects,
     retry: false,
@@ -33,7 +31,10 @@ export function ProjectsScreen() {
     <View style={style.mainBox}>
       <View style={style.headerBox}>
         <Typography variant="h1">{'Projects'}</Typography>
-        <Button variant="outlined" iconLeft="add" onPress={() => false}>
+        <Button
+          variant="outlined"
+          iconLeft="add"
+          onPress={() => navigate('AddProject')}>
           {'Add'}
         </Button>
       </View>

@@ -3,6 +3,7 @@
   "extends": ["@react-native" ],
   "rules": {  
     "prettier/prettier": "off",
-    "react-native/no-inline-styles": "off"
+    "react-native/no-inline-styles": "off",
+    "react-hooks/exhaustive-deps":"warn"
 }
 }

@@ -1,5 +1,5 @@
 import {createContext, ReactNode, useRef, useState} from 'react';
-import {LoginResponse, User} from '../types/entities';
+import {ILoginResponse, IUser} from '../types/entities';
 import {ApiError, ApiResponse, ErrorCode} from '../types/types';
 import {useQuery, useQueryClient} from '@tanstack/react-query';
 import EncryptedStorage from 'react-native-encrypted-storage';
@@ -8,7 +8,7 @@ import StatusCode from 'status-code-enum';
 import {useToast} from './useToast';
 
 export interface AuthContext {
-  user?: User;
+  user?: IUser;
   authToken?: string;
   authenticate: (
     username: string,
@@ -61,11 +61,11 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
       `${apiUrl}public/refresh-token`,
       refreshTokenOptions,
     );
-    const refreshTokenResponseObj: ApiResponse<LoginResponse> =
+    const refreshTokenResponseObj: ApiResponse<ILoginResponse> =
       await refreshTokenResponse.json();
     //If the refresh token is successful, we try to make the request again
     if (refreshTokenResponse.ok) {
-      const newTokensResponse: LoginResponse = refreshTokenResponseObj.data;
+      const newTokensResponse: ILoginResponse = refreshTokenResponseObj.data;
       setAuthToken(newTokensResponse.authToken);
       authTokenRef.current = newTokensResponse.authToken;
       storeSessionId(newTokensResponse.sessionId);
@@ -125,13 +125,13 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
     return response;
   };
 
-  const self = async (): Promise<User | undefined> => {
+  const self = async (): Promise<IUser | undefined> => {
     const url = `${apiUrl}self`;
     const options: RequestInit = {
       method: 'GET',
     };
     const res = await fetchWithAuth(url, options);
-    const result: ApiResponse<User> = await res.json();
+    const result: ApiResponse<IUser> = await res.json();
     if (!res.ok) {
       if (res.status !== StatusCode.ClientErrorUnauthorized) {
         throw new ApiError({
@@ -148,7 +148,7 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
     data: user,
     isLoading: isLoadingUserInfo,
     refetch: reloadUserInfo,
-  } = useQuery<User | undefined>({
+  } = useQuery<IUser | undefined>({
     queryKey: ['getUserInfo'],
     queryFn: self,
     retry: false,
@@ -159,7 +159,7 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
     username: string,
     password: string,
     rememberMe: boolean,
-  ): Promise<LoginResponse> => {
+  ): Promise<ILoginResponse> => {
     const url = `${apiUrl}public/login`;
     const options: RequestInit = {
       method: 'POST',
@@ -170,7 +170,7 @@ export const AuthProvider = ({children}: {children: ReactNode}) => {
       }),
     };
     const res = await fetch(url, options);
-    const result: ApiResponse<LoginResponse> = await res.json();
+    const result: ApiResponse<ILoginResponse> = await res.json();
     if (!res.ok) {
       throw new ApiError({
         statusCode: res.status,

@@ -5,4 +5,5 @@ export type PublicScreenNavList = {
 
 export type PrivateScreenNavList = {
   Projects: undefined;
+  AddProject: undefined;
 }

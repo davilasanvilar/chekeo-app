@@ -4,6 +4,7 @@ import Check from './icons/check.svg';
 import Ok from './icons/ok.svg';
 import Error from './icons/error.svg';
 import Dot from './icons/dot.svg';
+import Delete from './icons/delete.svg';
 
 import {colors} from '../../../styleVars';
 
@@ -13,7 +14,7 @@ export type IconProps = {
   color?: string;
 };
 
-export type SystemIcons = 'add' | 'check' | 'ok' | 'error' | 'dot';
+export type SystemIcons = 'add' | 'check' | 'ok' | 'error' | 'dot' | 'delete';
 
 export const Icon = (props: IconProps) => {
   const {type, size = 16, color = colors.primary[500]} = props;
@@ -36,6 +37,8 @@ function getIconType(
       return <Error width={size} height={size} color={color} />;
     case 'dot':
       return <Dot width={size} height={size} color={color} />;
+    case 'delete':
+      return <Delete width={size} height={size} color={color} />;
 
     default:
       return <></>;
